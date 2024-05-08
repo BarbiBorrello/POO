@@ -1,22 +1,26 @@
 // crear las clases Edificio, Piso y Departamento aquí
-class Edificio {
-  constructor (){
 
+class Departamento {
+
+  name : string;
+
+  constructor(name: string) {
+    this.name= name;
   }
 
+  getName (){
+    return this.name;
+  }
 }
 
 class Piso {
-  constructor() {
-    
+  name: string
+  departamento: Departamento;
+
+  constructor(name :string , departamento : Departamento ) {
+    this.name =name;
+    this.departamento =departamento;
   }
-}
-
-class Departamento {
-  constructor(){
-
-  }
-
 }
 
 
@@ -24,10 +28,13 @@ class Departamento {
 function testClaseEdificio() {
   const unPiso = new Piso("planta baja");
   const otroPiso = new Piso("primer piso");
+
   const unEdificio = new Edificio([unPiso, otroPiso]);
+
   const deptoUno = new Departamento("depto uno");
   const deptoDos = new Departamento("depto dos");
   const deptoTres = new Departamento("depto tres");
+
   unEdificio.addDepartamentoToPiso("planta baja", deptoUno);
   unEdificio.addDepartamentoToPiso("planta baja", deptoDos);
   unEdificio.addDepartamentoToPiso("planta baja", deptoTres);
