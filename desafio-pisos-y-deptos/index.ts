@@ -15,13 +15,56 @@ class Departamento {
 
 class Piso {
   name: string
-  departamento: Departamento;
+  departamentos: Departamento[];
 
-  constructor(name :string , departamento : Departamento ) {
-    this.name =name;
-    this.departamento =departamento;
+  constructor(name) {
+    this.name = name;
+    this.departamentos = [];
+  }
+
+  pushDepartamento(departamento){
+    this.departamentos.push(departamento.getName());
+    
+  }
+
+  getDepartamentos(){
+    return this.departamentos.map(departamento => departamento.getName());
+  }
+
+  /** utiliza el método map() para iterar sobre el array de departamentos 
+   * y devuelve un nuevo array con los nombres de los departamentos. */
+
+}
+
+class Edificio {
+  pisos;
+
+  constructor(arrayDePisos) {
+    this.pisos = arrayDePisos;
+  }
+
+  addDepartamentoToPiso(nombreDePiso, departamento) {
+    const pisoEncontrado = this.pisos.find(piso => piso.name === nombreDePiso);
+    if (pisoEncontrado) {
+      pisoEncontrado.pushDepartamento(departamento);
+    } else {
+      console.error("El piso indicado no existe en el edificio.");
+    }
+  }
+
+  getDepartamentosByPiso(nombreDePiso) {
+    const pisoEncontrado = this.pisos.find(piso => piso.name === nombreDePiso);
+    if (pisoEncontrado) {
+      return pisoEncontrado.getDepartamentos();
+    } else {
+      console.error("El piso indicado no existe en el edificio.");
+      return [];
+    }
   }
 }
+
+
+  
 
 
 // no modificar este test
