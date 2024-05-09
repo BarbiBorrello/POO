@@ -37,30 +37,20 @@ class Piso {
 }
 
 class Edificio {
-  pisos;
+  pisos : Piso[];
 
-  constructor(arrayDePisos) {
-    this.pisos = arrayDePisos;
+  constructor (pisos){
+    this.pisos=pisos;
+  }
+ 
+  addDepartamentoToPiso(nombreDePiso:string, departamento:Departamento) {
+
+
+
   }
 
-  addDepartamentoToPiso(nombreDePiso, departamento) {
-    const pisoEncontrado = this.pisos.find(piso => piso.name === nombreDePiso);
-    if (pisoEncontrado) {
-      pisoEncontrado.pushDepartamento(departamento);
-    } else {
-      console.error("El piso indicado no existe en el edificio.");
-    }
-  }
+ 
 
-  getDepartamentosByPiso(nombreDePiso) {
-    const pisoEncontrado = this.pisos.find(piso => piso.name === nombreDePiso);
-    if (pisoEncontrado) {
-      return pisoEncontrado.getDepartamentos();
-    } else {
-      console.error("El piso indicado no existe en el edificio.");
-      return [];
-    }
-  }
 }
 
 
