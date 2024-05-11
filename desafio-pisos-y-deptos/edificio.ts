@@ -38,11 +38,11 @@ export class Piso{
     return this.nombrePiso;
   }
 
-  pushDepartamento(departamento : Departamento){ /** AGREGA DEPARTAMENTO */
+  pushDepartamento(departamento : Departamento){
     this.departamentos.push(departamento);
   }
 
-  getDepartamentos (){ // OBTIENE LOS DEPARTAMENTOS AGREGADOS
+  getDepartamentos (){
     return this.departamentos;
   }
 
@@ -64,9 +64,50 @@ export class Piso{
 // console.log(unPiso.pushDepartamento(unDepto));
 // console.log (unPiso.getDepartamentos());
 
+class Edificio {
+pisos : Piso [];
 
 
+constructor(pisos : Piso []){
+  this.pisos=pisos;
+
+}
+
+//**! Recibe un Departamento y lo ubique en el piso con el nombre indicado, si no existe un piso con ese nombre debe mostrar un error.*/
+addDepartamentoToPiso(nombreDePiso: string, departamento: Departamento) {
+  const piso = this.pisos.find(p => p.nombrePiso === nombreDePiso);
+  if (piso) {
+    piso.pushDepartamento(departamento);
+  } else {
+    console.error(`No se encontró un piso con el nombre "${nombreDePiso}".`);
+  }
+}
+
+//**! Devuelve todos los departamentos de ese piso. Este método debe devolver un array de Departamento.*/
+
+getDepartamentosByPiso(nombreDePiso: string): Departamento[] {
+  const piso = this.pisos.find(p => p.nombrePiso === nombreDePiso);
+  if (piso) {
+    return piso.getDepartamentos();
+  } else {
+    console.error(`No se encontró un piso con el nombre "${nombreDePiso}".`);
+    return [];
+  }
+}
 
 
+}
 
+const unPiso = new Piso("planta baja");
+const otroPiso = new Piso("primer piso");
 
+const unEdificio = new Edificio([unPiso, otroPiso]);
+
+console.log(unEdificio);
+
+// unEdificio.addDepartamentoToPiso("planta baja", unDepto);
+// unEdificio.addDepartamentoToPiso("primer piso", otroDepto);
+// unEdificio.addDepartamentoToPiso("segundo piso", unDepto); // Mostrará un error
+
+const departamentosPlantaBaja = unEdificio.getDepartamentosByPiso("planta baja");
+console.log(departamentosPlantaBaja);

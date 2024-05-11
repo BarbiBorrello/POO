@@ -14,36 +14,60 @@ class Departamento {
 }
 
 class Piso {
-  name: string
-  departamentos: Departamento[];
 
-  constructor(name) {
-    this.name = name;
-    this.departamentos = [];
+  nombrePiso :string;
+  departamentos : Departamento[]; // trae clase Departamento
+
+  constructor (nombrePiso : string) { // no hace falta que clase Departamento sea parte del parametro
+    this.nombrePiso = nombrePiso;
+    this.departamentos =[]; // inicializar el array Departamento vacio
+
+  }
+  getnombrePiso(){
+    return this.nombrePiso;
   }
 
-  pushDepartamento(departamento){
-    this.departamentos.push(departamento.getName());
+  pushDepartamento(departamento : Departamento){
+    this.departamentos.push(departamento);
   }
 
-  getDepartamentos(){
-    return this.departamentos.map(departamento => departamento.getName());
+  getDepartamentos (){
+    return this.departamentos;
   }
 
-  /** utiliza el método map() para iterar sobre el array de departamentos 
-   * y devuelve un nuevo array con los nombres de los departamentos. */
 
 }
 
 class Edificio {
+  pisos : Piso [];
 
- 
 
-}
-
+constructor(pisos : Piso []){
+  this.pisos=pisos;
 
   
+}
 
+addDepartamentoToPiso(nombreDePiso: string, departamento: Departamento) {
+  const piso = this.pisos.find(p => p.nombrePiso === nombreDePiso);
+  if (piso) {
+    piso.pushDepartamento(departamento);
+  } else {
+    console.error(`No se encontró un piso con el nombre "${nombreDePiso}".`);
+  }
+}
+
+getDepartamentosByPiso(nombreDePiso: string): Departamento[] {
+  const piso = this.pisos.find(p => p.nombrePiso === nombreDePiso);
+  if (piso) {
+    return piso.getDepartamentos();
+  } else {
+    console.error(`No se encontró un piso con el nombre "${nombreDePiso}".`);
+    return [];
+  }
+
+}
+}
 
 // no modificar este test
 function testClaseEdificio() {
