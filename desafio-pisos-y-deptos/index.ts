@@ -24,7 +24,6 @@ class Piso {
 
   pushDepartamento(departamento){
     this.departamentos.push(departamento.getName());
-    
   }
 
   getDepartamentos(){
@@ -37,17 +36,6 @@ class Piso {
 }
 
 class Edificio {
-  pisos : Piso[];
-
-  constructor (pisos){
-    this.pisos=pisos;
-  }
- 
-  addDepartamentoToPiso(nombreDePiso:string, departamento:Departamento) {
-
-
-
-  }
 
  
 
