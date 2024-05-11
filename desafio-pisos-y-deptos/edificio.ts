@@ -75,7 +75,7 @@ constructor(pisos : Piso []){
 
 //**! Recibe un Departamento y lo ubique en el piso con el nombre indicado, si no existe un piso con ese nombre debe mostrar un error.*/
 addDepartamentoToPiso(nombreDePiso: string, departamento: Departamento) {
-  const piso = this.pisos.find(p => p.nombrePiso === nombreDePiso);
+  const piso = this.pisos.find(p => p.nombrePiso === nombreDePiso); 
   if (piso) {
     piso.pushDepartamento(departamento);
   } else {
