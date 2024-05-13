@@ -1,3 +1,12 @@
+
+/**
+ * ? importar de libreria lodash
+ */
+
+import * as indexOf from  "lodash/indexOf"
+
+
+
 class Producto {
   price : number
   name :string
