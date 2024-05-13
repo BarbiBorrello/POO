@@ -4,7 +4,7 @@
  */
 
 
-class Producto {
+  export class Producto {
   constructor(name: string, price: number) {
     this.name = name;
     this.price = price;
@@ -25,7 +25,7 @@ para almacenar la fecha de caducidad del producto alimenticio.
 Incluirá un método checkCaducidad() 
 que devolverá true si el producto está caducado o false en caso contrario. */
 
-class ProductoAlimenticio extends Producto {
+export class ProductoAlimenticio extends Producto {
   fechaCaducidad: Date;
   constructor(name:string, price:number, fechaCaducidad:Date) {
     super(name, price);
