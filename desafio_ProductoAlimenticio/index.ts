@@ -53,8 +53,7 @@ console.log("¿El producto está vencido?:", estaVencido ? "Sí" : "No");
 // Mostrar detalles del producto
 console.log("Nombre del Producto:", pan.name);
 console.log("Precio:", pan.getPrice());
-
-//console.log("Fecha de Caducidad:", pan.fechaCaducidad);
+console.log("Fecha de Caducidad:", pan.fechaCaducidad);
 
 // Mostrar detalles del producto con fecha de caducidad formateada
 console.log("Fecha de Caducidad:", `${pan.fechaCaducidad.getFullYear()}-${pan.fechaCaducidad.getMonth() + 1}-${pan.fechaCaducidad.getDate()}`);
